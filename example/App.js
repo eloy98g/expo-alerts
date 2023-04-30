@@ -2,6 +2,7 @@ import { useState } from "react";
 import { StyleSheet, Button, View } from "react-native";
 
 // Samples
+import AlertChildren from "./samples/AlertChildren";
 import AlertProps from "./samples/AlertProps";
 import AlertProps2 from "./samples/AlertProps2";
 
@@ -15,8 +16,13 @@ export default function App() {
         title="Other alert with props"
         onPress={() => setAlert("AlertProps2")}
       />
+      <Button title="Custom Alert" onPress={() => setAlert("AlertChildren")} />
       <AlertProps isVisible={modal === "AlertProps"} setVisible={setAlert} />
       <AlertProps2 isVisible={modal === "AlertProps2"} setVisible={setAlert} />
+      <AlertChildren
+        isVisible={modal === "AlertChildren"}
+        setVisible={setAlert}
+      />
     </View>
   );
 }

@@ -16,7 +16,7 @@ const Alert = (props) => {
     actions = [],
     icon,
     timeout,
-    onHide,
+    onHide = () => {},
     isVisible,
     setVisible,
     title,
@@ -68,8 +68,14 @@ const Alert = (props) => {
   };
 
   const hasButtons = hasActions(actions);
+
+  const hideHandler = () => {
+    onHide();
+    setVisible();
+  };
+
   return (
-    <CustomModal isVisible={isVisible} onHide={() => setVisible(false)}>
+    <CustomModal isVisible={isVisible} onHide={hideHandler}>
       {children ? (
         <>{children}</>
       ) : (
@@ -117,16 +123,6 @@ const Alert = (props) => {
 export default Alert;
 
 const styles = StyleSheet.create({
-  text: {
-    color: "black",
-    fontSize: 12,
-    textAlign: "center",
-  },
-  title: {
-    textAlign: "center",
-    color: "black",
-    fontSize: 14,
-  },
   modalView: {
     alignItems: "center",
     justifyContent: "flex-start",
