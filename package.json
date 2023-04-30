@@ -29,7 +29,9 @@
   "license": "MIT",
   "homepage": "https://github.com/eloy98g/expo-alerts#readme",
   "dependencies": {
-    "@expo/vector-icons": "^13.0.0"
+    "@expo/vector-icons": "^13.0.0",
+    "lottie-react-native": "^5.1.5",
+    "lottie-web": "^5.11.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.25",
