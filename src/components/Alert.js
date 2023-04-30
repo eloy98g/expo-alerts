@@ -96,6 +96,7 @@ const Alert = (props) => {
                     />
                   )}
                   <CustomButton
+                    radius={actions.radius}
                     active
                     key={button.title}
                     onPress={button.onPress}

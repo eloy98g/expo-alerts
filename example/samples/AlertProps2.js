@@ -1,25 +1,22 @@
 import { Alert } from "expo-alerts";
 import React from "react";
+import { Image } from "react-native";
 
-const AlertProps = ({ isVisible, setVisible }) => {
+const AlertProps2 = ({ isVisible, setVisible }) => {
   const dummieProps = {
-    title: "Alert with props",
+    icon: <Image source={require("../assets/alerts/ok.png")} />,
+    title: "Another alert with props",
     body: "This is an alert customized by props.\nAwesome!",
-    alertStyle: { radius: 10, padding: 18 },
+    alertStyle: { radius: 30, padding: 12 },
     actions: {
       direction: "row",
       gap: 5,
-      radius: 10,
+      radius: 50,
       buttons: [
         {
           onPress: () => setVisible(),
-          title: "Cancelar",
-          style: { buttonColor: "white", textColor: "#E2504D" },
-        },
-        {
-          onPress: () => setVisible(),
           title: "Aceptar",
-          style: { buttonColor: "#2976B9", textColor: "white" },
+          style: { buttonColor: "#2AAF73", textColor: "white" },
         },
       ],
     },
@@ -30,4 +27,4 @@ const AlertProps = ({ isVisible, setVisible }) => {
   );
 };
 
-export default AlertProps;
+export default AlertProps2;

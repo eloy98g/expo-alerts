@@ -16,6 +16,7 @@ const CustomButton = ({
   color = "#3490dc",
   textColor = "white",
   loading,
+  radius = 60,
   ...rest
 }) => {
   return (
@@ -23,6 +24,7 @@ const CustomButton = ({
       style={[
         styles.confirmButton,
         { backgroundColor: color },
+        { borderRadius: radius },
         active === false && { backgroundColor: lighten(color, 40) },
         { ...rest },
       ]}
@@ -47,7 +49,6 @@ const styles = StyleSheet.create({
     maxHeight: 46,
     justifyContent: "center",
     alignItems: "center",
-    borderRadius: 60,
     paddingHorizontal: 18,
   },
   confirmText: {
