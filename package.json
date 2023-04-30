@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "Internal notifications module for React Native / Expo. Focused on providing a flexible, cross-platform and  easy-to-implement solution for developers looking to add internal notifications to their apps",
   "main": "build/index.js",
-  "types": "build/index.d.ts",
+  "types": "build/index.js",
   "scripts": {
     "build": "expo-module build",
     "clean": "expo-module clean",
@@ -28,7 +28,9 @@
   "author": "Eloy Gomez Garcia <eloygomez.contact@gmail.com> (https://github.com/eloy98g)",
   "license": "MIT",
   "homepage": "https://github.com/eloy98g/expo-alerts#readme",
-  "dependencies": {},
+  "dependencies": {
+    "@expo/vector-icons": "^13.0.0"
+  },
   "devDependencies": {
     "@types/react": "^18.0.25",
     "@types/react-native": "^0.70.6",
