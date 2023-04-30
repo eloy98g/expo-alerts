@@ -4,69 +4,111 @@ import { View, LogBox, StyleSheet, Text, ScrollView } from "react-native";
 // Base
 import CustomButton from "./base/CustomButton";
 import CustomModal from "./base/CustomModal";
+import Divider from "./base/Divider";
+// Utils
+import { hasActions } from "../utils/hasActions";
 
 LogBox.ignoreLogs(["react-native-styled-text"]);
 
 const Alert = (props) => {
-  const { visible, setVisible, alertData, color, textColor, icon } = props;
+  const {
+    alertStyle = {},
+    actions = [],
+    icon,
+    timeout,
+    onHide,
+    isVisible,
+    setVisible,
+    title,
+    body,
+    children,
+  } = props;
+
+  const {
+    radius = 20,
+    bgColor = "white",
+    titleColor = "black",
+    titleSize = 20,
+    bodySize = 14,
+    bodyColor = "black",
+    family,
+    padding = 1,
+    width = "100%",
+    height = "auto",
+    maxWidth = 350,
+    maxHeight,
+    textAlign = "center",
+    gap = 20,
+  } = alertStyle;
+
+  const containerStyle = {
+    borderRadius: radius,
+    backgroundColor: bgColor,
+    padding,
+    width,
+    height,
+    maxWidth,
+    maxHeight,
+    textAlign,
+    ...alertStyle,
+  };
+
+  const titleStyle = {
+    color: titleColor,
+    family,
+    fontSize: titleSize,
+    textAlign,
+  };
+
+  const bodyStyle = {
+    color: bodyColor,
+    family,
+    fontSize: bodySize,
+    textAlign,
+  };
+
+  const hasButtons = hasActions(actions);
   return (
-    <CustomModal modalVisible={visible} handleModal={() => setVisible(false)}>
-      <View>{icon}</View>
-      {alertData?.title && (
-        <View style={{ marginVertical: 20 }}>
-          <Text style={styles.title}>{alertData.title}</Text>
+    <CustomModal isVisible={isVisible} onHide={() => setVisible(false)}>
+      {children ? (
+        <>{children}</>
+      ) : (
+        <View style={[styles.modalView, containerStyle]}>
+          {icon && <View>{icon}</View>}
+          {icon && <Divider height={gap} />}
+          {title && <Text style={titleStyle}>{title}</Text>}
+          {body && <Divider height={gap} />}
+          {body && <Text style={bodyStyle}>{body}</Text>}
+          {hasButtons && <Divider height={gap} />}
+          {hasButtons && (
+            <View
+              style={{
+                width: "100%",
+                flexDirection: actions.direction || "row",
+              }}
+            >
+              {actions?.buttons?.map((button, index) => (
+                <>
+                  {index > 0 && (
+                    <Divider
+                      width={actions.direction === "row" && actions.gap}
+                      height={actions.direction === "column" && actions.gap}
+                    />
+                  )}
+                  <CustomButton
+                    active
+                    key={button.title}
+                    onPress={button.onPress}
+                    title={button.title}
+                    color={button.style?.buttonColor || "#2976B9"}
+                    textColor={button.style?.textColor || "white"}
+                  />
+                </>
+              ))}
+            </View>
+          )}
         </View>
       )}
-      <ScrollView
-        showsVerticalScrollIndicator={false}
-        style={{ width: "100%", height: "auto", maxHeight: 300 }}
-      >
-        {alertData?.subtitle && (
-          <View style={{ marginVertical: 20 }}>
-            <Text style={[styles.text, textColor && { color: textColor }]}>
-              {alertData.subtitle}
-            </Text>
-          </View>
-        )}
-      </ScrollView>
-      <View style={{ width: "100%", flexDirection: "row", marginTop: 10 }}>
-        {alertData?.actions ? (
-          alertData.actions?.map((action) => (
-            <CustomButton
-              active
-              key={action.title}
-              onPress={() => {
-                action.onPress();
-                if (alertData?.action) {
-                  alertData.action();
-                }
-                if (!alertData?.disableVisible) {
-                  setVisible(false);
-                }
-              }}
-              title={action.title}
-              marginHorizontal={5}
-              color={action?.color || color}
-              textColor={action?.textColor || textColor}
-            />
-          ))
-        ) : (
-          <CustomButton
-            active
-            onPress={() => {
-              if (!alertData?.disableVisible) {
-                setVisible(false);
-              }
-              if (alertData?.action) {
-                alertData.action();
-              }
-            }}
-            title="Aceptar"
-            color={color}
-            textColor={textColor}
-          />
-        )}
-      </View>
     </CustomModal>
   );
 };
@@ -83,5 +125,17 @@ const styles = StyleSheet.create({
     textAlign: "center",
     color: "black",
     fontSize: 14,
+  },
+  modalView: {
+    alignItems: "center",
+    justifyContent: "flex-start",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
   },
 });

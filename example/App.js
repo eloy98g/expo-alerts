@@ -1,17 +1,16 @@
-import { Alert } from "expo-alerts";
 import { useState } from "react";
 import { StyleSheet, Button, View } from "react-native";
 
-export default function App() {
-  const [modal, setModal] = useState(false);
+// Samples
+import AlertProps from "./samples/AlertProps";
 
-  const buttonHandler = () => {
-    setModal((prev) => !prev);
-  };
+export default function App() {
+  const [modal, setAlert] = useState(false);
+
   return (
     <View style={styles.container}>
-      <Button title="Press" onPress={buttonHandler} />
-      <Alert visible={modal} setVisible={setModal} />
+      <Button title="Alert with props" onPress={() => setAlert("AlertProps")} />
+      <AlertProps isVisible={modal === "AlertProps"} setVisible={setAlert} />
     </View>
   );
 }
