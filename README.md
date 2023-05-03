@@ -219,7 +219,7 @@ A Toast component displays a brief message to the user.
 
 ## Author
 
-Eloy Gómez Garcñia | [https://eloygomez.net.com](https://eloygomez.net)
+Eloy Gómez García | [https://eloygomez.net.com](https://eloygomez.net)
 
 
 ## License
