@@ -1,5 +1,5 @@
 import React from "react";
-import { View, LogBox, StyleSheet, Text, ScrollView } from "react-native";
+import { View, LogBox, StyleSheet, Text } from "react-native";
 
 // Base
 import CustomButton from "./base/CustomButton";
