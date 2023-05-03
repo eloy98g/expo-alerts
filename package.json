@@ -21,7 +21,10 @@
     "expo-alerts",
     "ExpoAlerts"
   ],
-  "repository": "https://github.com/eloy98g/expo-alerts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eloy98g/expo-alerts.git"
+  },
   "bugs": {
     "url": "https://github.com/eloy98g/expo-alerts/issues"
   },
@@ -43,5 +46,8 @@
     "expo": "*",
     "react": "^18.2.0",
     "react-native": "*"
+  },
+  "directories": {
+    "example": "example"
   }
 }
