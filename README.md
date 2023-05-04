@@ -48,7 +48,7 @@ import { Image } from "react-native";
 
 const App = () => {
     // Handler
-    const [visible, setVisible] = useState()
+    const [isVisible, setVisible] = useState()
     
     // ALert configuration
     const alertConfig = {
@@ -86,7 +86,7 @@ import { Text, View, StyleSheet, Image } from "react-native";
 
 const App = () => {
     // Handler
-    const [visible, setVisible] = useState()
+    const [isVisible, setVisible] = useState()
     return (
         <Alert isVisible={isVisible} setVisible={setVisible}>
           // Children
@@ -104,7 +104,7 @@ import { Text, View, StyleSheet, Image } from "react-native";
 
 const App = () => {
     // Handler
-    const [visible, setVisible] = useState()
+    const [isVisible, setVisible] = useState()
     
     // Toast configuration
     const configuration = {
@@ -124,8 +124,8 @@ const App = () => {
     
     return (
         <Toast
-            visible={toast === "Toast"}
-            setVisible={setToast}
+            visible={isVisible}
+            setVisible={setVisible}
             config={configuration}
         />
     );
