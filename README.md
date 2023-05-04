@@ -81,8 +81,7 @@ export default App;
 ### Alert by user custom component
 ```js
 import { Alert } from "expo-alerts";
-import React from "react";
-import { Text, View, StyleSheet, Image } from "react-native";
+import React, { useState } from "react";
 
 const App = () => {
     // Handler
@@ -98,9 +97,8 @@ const App = () => {
 
 ### Toast Notification
 ```js
-import { Alert } from "expo-alerts";
-import React from "react";
-import { Text, View, StyleSheet, Image } from "react-native";
+import { Toast } from "expo-alerts";
+import React, { useState } from "react";
 
 const App = () => {
     // Handler
