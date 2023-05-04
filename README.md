@@ -6,13 +6,13 @@ Internal notifications module for React Native / Expo. Focused on providing a fl
 
 |                                                                         Customized by props                                                                          |                                                                      Customized by component                                                                       |
 | :------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-| <img src="https://github.com/eloy98g/expo-alerts/blob/main/example/media/propalert.gif?raw=true" height="350" alt="Prop Alert" /> | <img src="https://github.com/eloy98g/expo-alerts/blob/main/example/media/customalert.gif?raw=true" height="350" alt="Custom Alert" /> |
+| <img src="https://github.com/eloy98g/expo-alerts/blob/main/example/media/propalert.gif?raw=true" height="400" alt="Prop Alert" /> | <img src="https://github.com/eloy98g/expo-alerts/blob/main/example/media/customalert.gif?raw=true" height="400" alt="Custom Alert" /> |
 
 ## Example Toast Notification
 
 |                                                                            Theme Light                                                                             |                                                                            
 | :----------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-| <img src="https://github.com/eloy98g/expo-alerts/blob/main/example/media/toast.gif?raw=true" height="350" alt="toast" /> 
+| <img src="https://github.com/eloy98g/expo-alerts/blob/main/example/media/toast.gif?raw=true" height="400" alt="toast" /> 
 
 ## Installation
 
