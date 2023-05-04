@@ -19,7 +19,7 @@ Internal notifications module for React Native / Expo. Focused on providing a fl
 ### - Installing:
 
 ```sh
-yarn add expo-alerts
+npm install expo-alerts
 ```
 
 ### - Installing dependencies:
@@ -27,7 +27,7 @@ yarn add expo-alerts
 - For Native project:
 
 ```sh
-yarn add expo-alerts
+npm install expo-alerts
 
 pod install
 ```
